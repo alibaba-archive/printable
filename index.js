@@ -1,0 +1,1 @@
+module.exports = process.env.HSF_COV ? require('./lib-cov/printable') : require('./lib/printable');

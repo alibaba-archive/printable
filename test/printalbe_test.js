@@ -36,4 +36,18 @@ describe('printable test', function() {
       out.should.equal('hel|wor\n你 |世 ');
     });
   });
+
+  describe('!string print', function() {
+    it('should print number ok', function() {
+      source.push(['number', 123456789]);
+      var out = pt.print(source, '|');
+      out.should.equal('hello |world    \n你好  |世界     \nnumber|123456789');
+    });
+
+    it('should print object ok', function() {
+      source.push([{a:"1"}, ['我',2]]);
+      var out = pt.print(source, '|');
+      out.should.equal('hello    |world    \n你好     |世界     \nnumber   |123456789\n{"a":"1"}|["我",2] ');
+    });
+  });
 });
